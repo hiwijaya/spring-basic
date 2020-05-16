@@ -20,14 +20,14 @@ public class Main {
         System.out.println(dataSource.getConnection());
 
         DataSource poolSource = context.getBean("poolSource", DataSource.class);
+        System.out.println(poolSource.getConnectionType());
 
         Connection connection = context.getBean("connection", Connection.class);
-        connection.conect();
+        System.out.println(connection.getHost());
 
 
         // component-scan based
-        CustomerRepository customerRepository = context.getBean("customerRepository", CustomerRepository.class);
-//        CustomerRepository customerRepository = context.getBean(CustomerRepository.class);
+        CustomerRepository customerRepository = context.getBean(CustomerRepository.class);  // context.getBean("customerRepository", CustomerRepository.class);
         customerRepository.save();
 
     }

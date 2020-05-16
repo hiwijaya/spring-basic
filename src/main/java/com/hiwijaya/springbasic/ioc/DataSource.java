@@ -9,28 +9,38 @@ public class DataSource {
     private String user;
     private String password;
 
-    private static Connection connection;
+    private ConnectionType connectionType;
+
+    private Connection connection;
+
 
     public DataSource() { }
 
-    public DataSource(int port) {
-        System.out.println("Run on port: " + port);
+    public DataSource(String host) {
+        this.host = host;
+        System.out.println("Host: " + host);
     }
 
-    public DataSource(ConnectionType type){
-        System.out.println("Connection type: " + type.getName());
+    public DataSource(ConnectionType connectionType){
+        this.connectionType = connectionType;
+        System.out.println("Connection type: " + connectionType.getName());
     }
 
-    public static Connection getInstance(){
+
+
+    public Connection getInstance(){
         if(connection == null){
-            connection = new Connection("localhost");   // default host
+            connection = new Connection("jdbc:postgresql://127.0.0.1:5432/library");
         }
         return connection;
     }
 
+    public Connection getConnection(){
+        return new Connection(host);
+    }
 
-    public String getConnection(){
-        return "Database connected to " + host;
+    public String getConnectionType(){
+        return connectionType.toString();
     }
 
 

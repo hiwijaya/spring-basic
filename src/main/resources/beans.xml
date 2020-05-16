@@ -7,10 +7,9 @@
         http://www.springframework.org/schema/context
         https://www.springframework.org/schema/context/spring-context.xsd">
 
-    <!--  DataSource dataSource = new DataSource(5432);  -->
+    <!--  DataSource dataSource = new DataSource("jdbc:postgresql://localhost:5432/library");  -->
     <bean id="dataSource" class="com.hiwijaya.springbasic.ioc.DataSource">
-        <constructor-arg name="port" value="5432"/>
-        <property name="host" value="jdbc:postgresql://localhost:5432/library"/>
+        <constructor-arg name="host" value="jdbc:postgresql://localhost:5432/library"/>
         <property name="user" value="postgres"/>
         <property name="password" value="secret"/>
     </bean>
@@ -20,10 +19,14 @@
         <constructor-arg>
             <value type="com.hiwijaya.springbasic.ioc.ConnectionType">POOL</value>
         </constructor-arg>
+        <property name="host" value="jdbc:postgresql://localhost:5432/library"/>
+        <property name="user" value="postgres"/>
+        <property name="password" value="secret"/>
     </bean>
 
     <!--  Connection connection = DataSource.getInstance()  -->
-    <bean id="connection" class="com.hiwijaya.springbasic.ioc.DataSource"
+    <bean id="connection"
+          factory-bean="dataSource"
           factory-method="getInstance">
     </bean>
 

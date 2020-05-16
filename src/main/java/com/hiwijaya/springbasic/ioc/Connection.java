@@ -7,16 +7,20 @@ public class Connection {
 
     private String host;
 
-//    public Connection() {
-//
-//    }
-
     public Connection(String host){
         this.host = host;
     }
 
-    public void conect(){
-        System.out.println("Connected by singleton object to: " + host);
+    public String getHost() {
+        return host;
     }
 
+    public void connect(){
+        System.out.println("Database connected.");
+    }
+
+    @Override
+    public String toString() {
+        return "Connection(" + host + ")";
+    }
 }

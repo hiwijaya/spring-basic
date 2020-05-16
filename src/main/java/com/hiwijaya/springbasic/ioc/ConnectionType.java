@@ -5,7 +5,7 @@ package com.hiwijaya.springbasic.ioc;
  */
 public enum ConnectionType {
 
-    SINGLETON("singleton"), POOL("pool");
+    SINGLE("SINGLE"), POOL("POOL");
 
     private String name;
 

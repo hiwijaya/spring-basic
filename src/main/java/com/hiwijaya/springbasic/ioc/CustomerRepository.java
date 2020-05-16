@@ -16,7 +16,7 @@ public class CustomerRepository {
     }
 
     public void save(){
-        connection.conect();
+        connection.connect();
         System.out.println("Saving customer to database.");
     }
 
