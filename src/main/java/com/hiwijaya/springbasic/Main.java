@@ -22,8 +22,8 @@ public class Main {
         DataSource poolSource = context.getBean("poolSource", DataSource.class);
         System.out.println(poolSource.getConnectionType());
 
-        Connection connection = context.getBean("connection", Connection.class);
-        System.out.println(connection.getHost());
+//        Connection connection = context.getBean("connection", Connection.class);
+//        System.out.println(connection.getHost());
 
 
         // component-scan based

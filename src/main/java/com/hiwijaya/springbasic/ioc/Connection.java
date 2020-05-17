@@ -19,6 +19,10 @@ public class Connection {
         System.out.println("Database connected.");
     }
 
+    public void disconnect(){
+        System.out.println("Database disconnected.");
+    }
+
     @Override
     public String toString() {
         return "Connection(" + host + ")";

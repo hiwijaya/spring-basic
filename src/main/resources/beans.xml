@@ -24,13 +24,20 @@
         <property name="password" value="secret"/>
     </bean>
 
-    <!--  Connection connection = DataSource.getInstance()  -->
+    <!--  Connection connection = dataSource.getInstance()  -->
     <bean id="connection"
           factory-bean="dataSource"
           factory-method="getInstance">
     </bean>
 
+    <!--  Connection connection = poolSource.getConnection()  -->
+    <bean id="poolConnection"
+          factory-bean="poolSource"
+          factory-method="getConnection">
+    </bean>
 
+
+    <!--  scanning the packages looking for @component  -->
     <context:component-scan base-package="com.hiwijaya.springbasic.ioc"/>
 
 </beans>
